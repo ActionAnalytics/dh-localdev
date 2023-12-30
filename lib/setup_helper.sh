@@ -7,4 +7,5 @@ checkDependencies(){
       echo -e \\n"Prerequisites not installed.\\nPlease run the prerequisites script per the README.md in the root folder of this repository.\\n"\\n;
       exit 1;
   fi
+  #check for podman here
 }
