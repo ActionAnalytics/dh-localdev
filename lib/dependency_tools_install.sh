@@ -85,6 +85,9 @@ else
     exit 1;
 fi
 
+podman machine init;
+podman machine start;
+
 source "$DIR/vscodeextensions.txt";
 
 envProfileSettings "${PROFILE_FILE}";
