@@ -1,0 +1,2 @@
+code --install-extension mauve.terraform
+code --install-extension wholroyd.HCL
