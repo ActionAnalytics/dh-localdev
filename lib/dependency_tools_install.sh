@@ -56,7 +56,6 @@ if [[ "$PACKAGE_MANAGER" == "brew" ]]; then
     libyaml readline libxslt libtool unixodbc \
     unzip curl wget jq pcre \
     git make;
-    
     brew install --cask "${IDE}";
 elif [[ "$PACKAGE_MANAGER" == "choco" ]]; then
     sudo PowerShell -NoProfile -ExecutionPolicy remotesigned -Command ". 'install_choco.ps1;";
