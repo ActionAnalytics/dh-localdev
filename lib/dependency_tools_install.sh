@@ -55,19 +55,19 @@ if [[ "$PACKAGE_MANAGER" == "brew" ]]; then
     brew install coreutils automake autoconf openssl \
     libyaml readline libxslt libtool unixodbc \
     unzip curl wget jq pcre \
-    git make;
+    git make podman;
     brew install --cask "${IDE}";
 elif [[ "$PACKAGE_MANAGER" == "choco" ]]; then
     sudo PowerShell -NoProfile -ExecutionPolicy remotesigned -Command ". 'install_choco.ps1;";
     choco upgrade chocolatey;
-    choco install git "${IDE}" make jq pcre -y;
+    choco install git "${IDE}" make jq pcre podman-cli -y;
 elif [[ "$PACKAGE_MANAGER" == "yum" ]]; then
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc;
     sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo';
     yum check-update;
     sudo yum -y install "${IDE}";
     sudo yum -y install epel-release;
-    sudo yum -y install coreutils automake autoconf openssl libtool unixodbc make jq unzip curl wget git pcre;
+    sudo yum -y install coreutils automake autoconf openssl libtool unixodbc make jq unzip curl wget git pcre podman;
 elif [[ "$PACKAGE_MANAGER" == "apt" ]]; then
     sudo apt-get update && sudo apt-get -y upgrade;
      # This here is for vscode
@@ -79,7 +79,7 @@ elif [[ "$PACKAGE_MANAGER" == "apt" ]]; then
     sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/;
     sudo apt-get -y install apt-transport-https;
     sudo apt-get update;
-    sudo apt-get -y install build-essential coreutils automake autoconf openssl libtool unixodbc unzip curl git make jq pcre;
+    sudo apt-get -y install build-essential coreutils automake autoconf openssl libtool unixodbc unzip curl git make jq pcre podman;
 else
     echo -e \\n"Packages not installed.\\n"\\n
     exit 1;
